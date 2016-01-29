@@ -22,9 +22,30 @@ public class SampleServiceImpl implements SampleService{
 		return sampleDAO.selectBoardList(map);
 		
 	}
+	
+	//글 쓰기
 	@Override
 	public void insertBoard(Map<String, Object> map) throws Exception {
 	    sampleDAO.insertBoard(map);
 	}
+	
+	//글 읽기 & 조회수증가
+	@Override
+	public Map<String, Object> selectBoardDetail(Map<String, Object> map) throws Exception {
+	    sampleDAO.updateHitCnt(map);
+	    Map<String, Object> resultMap = sampleDAO.selectBoardDetail(map);
+	    return resultMap;
+	}
+	
+	//글 수정
+	@Override
+	public void updateBoard(Map<String, Object> map) throws Exception{
+	    sampleDAO.updateBoard(map);
+	}
 
+	//글 삭제
+	@Override
+	public void deleteBoard(Map<String, Object> map) throws Exception {
+	    sampleDAO.deleteBoard(map);
+	}
 }
