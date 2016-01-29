@@ -12,6 +12,8 @@
 			    CREA_DTM
 			FROM
 			    TB_BOARD
+			WHERE
+				DEL_GB = 'N'
 			ORDER BY IDX DESC
 		]]>
 	</select>
