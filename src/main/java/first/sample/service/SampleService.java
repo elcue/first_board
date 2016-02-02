@@ -16,7 +16,8 @@ public interface SampleService {
 	Map<String, Object> selectBoardDetail(Map<String, Object> map) throws Exception;
 
 	//글 수정
-	void updateBoard(Map<String, Object> map) throws Exception; 
+	void updateBoard(Map<String, Object> map, HttpServletRequest request) throws Exception;
+ 
 
 	//글 삭제
 	void deleteBoard(Map<String, Object> map) throws Exception;

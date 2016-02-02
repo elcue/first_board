@@ -51,5 +51,13 @@ public class SampleDAO extends AbstractDAO{
 	    insert("sample.insertFile", map);
 	}
 	
+	public void deleteFileList(Map<String, Object> map) throws Exception{
+	    update("sample.deleteFileList", map);
+	}
+	 
+	public void updateFile(Map<String, Object> map) throws Exception{
+	    update("sample.updateFile", map);
+	}
+	
 	
 }

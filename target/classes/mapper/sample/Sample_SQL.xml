@@ -136,6 +136,25 @@
     ]]>
 </insert>
 
+<!-- 파일 추가 삭제 Y&N으로 변경하는 쿼리 -->
+<update id="deleteFileList" parameterType="hashmap">
+    <![CDATA[
+        UPDATE TB_FILE SET
+            DEL_GB = 'Y'
+        WHERE
+            BOARD_IDX = #{IDX}  
+    ]]>
+</update>
+ 
+<update id="updateFile" parameterType="hashmap">
+    <![CDATA[
+        UPDATE TB_FILE SET
+            DEL_GB = 'N'
+        WHERE
+            IDX = #{FILE_IDX}   
+    ]]>
+</update>
+
 
 
 	
