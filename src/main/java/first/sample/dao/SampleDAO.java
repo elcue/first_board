@@ -40,6 +40,15 @@ public class SampleDAO extends AbstractDAO{
 	    update("sample.deleteBoard", map);
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> selectFileList(Map<String, Object> map) throws Exception{
+	    return (List<Map<String, Object>>)selectList("sample.selectFileList", map);
+	}
+	
+	//파일추가
+	public void insertFile(Map<String, Object> map) throws Exception{
+	    insert("sample.insertFile", map);
+	}
 	
 	
 }
