@@ -24,7 +24,7 @@
         <tbody>
             <c:choose>
                 <c:when test="${fn:length(list) > 0}">
-                    <c:forEach items="${list }" var="row">
+                    <c:forEach var="row" items="${list}" varStatus="status">
                         <tr>
                             <td>${row.IDX }</td>
                             <td class="title">
@@ -34,16 +34,22 @@
                             <td>${row.HIT_CNT }</td>
                             <td>${row.CREA_DTM }</td>
                         </tr>
-                    </c:forEach>
+                    </c:forEach>  
                 </c:when>
                 <c:otherwise>
                     <tr>
                         <td colspan="4">조회된 결과가 없습니다.</td>
                     </tr>
                 </c:otherwise>
-            </c:choose>
+            </c:choose>   
         </tbody>
     </table>
+     
+    <c:if test="${not empty paginationInfo}">
+        <ui:pagination paginationInfo = "${paginationInfo}" type="text" jsFunction="fn_search"/>
+    </c:if>
+    <input type="hidden" id="currentPageNo" name="currentPageNo"/>
+     
     <br/>
     <a href="#this" class="btn" id="write">글쓰기</a>
      
@@ -72,6 +78,13 @@
             var comSubmit = new ComSubmit();
             comSubmit.setUrl("<c:url value='/sample/openBoardDetail.do' />");
             comSubmit.addParam("IDX", obj.parent().find("#IDX").val());
+            comSubmit.submit();
+        }
+         
+        function fn_search(pageNo){
+            var comSubmit = new ComSubmit();
+            comSubmit.setUrl("<c:url value='/sample/openBoardList.do' />");
+            comSubmit.addParam("currentPageNo", pageNo);
             comSubmit.submit();
         }
     </script> 
